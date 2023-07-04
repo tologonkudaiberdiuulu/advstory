@@ -9,6 +9,7 @@ class IndicatorStyle {
     this.padding = const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
     this.backgroundColor = const Color(0xe6bdbdbd),
     this.valueColor = const Color(0xffffffff),
+    this.borderRadius,
   });
 
   /// Space between indicators.
@@ -27,4 +28,7 @@ class IndicatorStyle {
   /// Empty indicator color. Default value is `Colors.grey.shade300` with 90%
   /// opacity.
   final Color backgroundColor;
+
+  /// Percent indicator radius
+  final BorderRadius? borderRadius;
 }

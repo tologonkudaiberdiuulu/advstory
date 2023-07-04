@@ -19,8 +19,8 @@ class ContentView extends StatefulWidget {
   const ContentView({
     required this.storyIndex,
     required this.story,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   /// Index of the story in the story list.
   final int storyIndex;
@@ -39,7 +39,11 @@ class ContentViewState extends State<ContentView> {
   DataProvider? _provider;
 
   /// Returns width without using [MediaQuery].
-  double get width => (window.physicalSize / window.devicePixelRatio).width;
+  double get width {
+    final physicalSize = View.of(context).physicalSize;
+    final devicePixelRatio = View.of(context).devicePixelRatio;
+    return (physicalSize / devicePixelRatio).width;
+  }
 
   @override
   void didChangeDependencies() {

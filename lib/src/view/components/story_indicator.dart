@@ -53,13 +53,16 @@ class StoryIndicator extends StatelessWidget {
         if (index != activeIndicatorIndex) {
           final isBefore = index < activeIndicatorIndex;
           return Expanded(
-            child: LinearProgressIndicator(
-              backgroundColor: style.backgroundColor,
-              valueColor: AlwaysStoppedAnimation<Color>(
-                isBefore ? style.valueColor : style.backgroundColor,
+            child: ClipRRect(
+              borderRadius: style.borderRadius,
+              child: LinearProgressIndicator(
+                backgroundColor: style.backgroundColor,
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  isBefore ? style.valueColor : style.backgroundColor,
+                ),
+                value: isBefore ? 1 : 0,
+                minHeight: style.height,
               ),
-              value: isBefore ? 1 : 0,
-              minHeight: style.height,
             ),
           );
         } else {
@@ -67,11 +70,14 @@ class StoryIndicator extends StatelessWidget {
             child: AnimatedBuilder(
               animation: animation!,
               builder: (context, child) {
-                return LinearProgressIndicator(
-                  backgroundColor: style.backgroundColor,
-                  valueColor: AlwaysStoppedAnimation<Color>(style.valueColor),
-                  value: animation.value,
-                  minHeight: style.height,
+                return ClipRRect(
+                  borderRadius: style.borderRadius,
+                  child: LinearProgressIndicator(
+                    backgroundColor: style.backgroundColor,
+                    valueColor: AlwaysStoppedAnimation<Color>(style.valueColor),
+                    value: animation.value,
+                    minHeight: style.height,
+                  ),
                 );
               },
             ),

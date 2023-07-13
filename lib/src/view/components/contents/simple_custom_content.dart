@@ -17,6 +17,9 @@ class SimpleCustomContent extends StatefulWidget implements AdvStoryContent {
     required this.builder,
     this.useStoryHeader = false,
     this.useStoryFooter = false,
+    this.headerLeftPosition = 0,
+    this.footerLeftPosition = 0,
+    this.footerBottomPosition = 0,
     this.duration = const Duration(seconds: 10),
     Key? key,
   }) : super(key: key);
@@ -32,6 +35,15 @@ class SimpleCustomContent extends StatefulWidget implements AdvStoryContent {
 
   /// Sets whether the content should use the default story footer.
   final bool useStoryFooter;
+
+  /// Sets custom header position from left.
+  final double headerLeftPosition;
+
+  /// Sets custom footer position from left.
+  final double footerLeftPosition;
+
+  /// Sets custom footer position from left.
+  final double footerBottomPosition;
 
   @override
   State<SimpleCustomContent> createState() => _SimpleCustomContentState();

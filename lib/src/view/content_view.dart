@@ -107,10 +107,16 @@ class ContentViewState extends State<ContentView> {
   List<Widget> _getComponents(AdvStoryContent content) {
     Widget? header;
     Widget? footer;
+    double? headerLeft;
+    double? footerLeft;
+    double? footerBottom;
 
     if (content is SimpleCustomContent) {
       header = content.useStoryHeader ? widget.story.header : null;
       footer = content.useStoryFooter ? widget.story.footer : null;
+      headerLeft = content.headerLeftPosition;
+      footerLeft = content.footerLeftPosition;
+      footerBottom = content.footerBottomPosition;
     } else if (content is ManagedContent) {
       header = content.header ?? widget.story.header;
       footer = content.footer ?? widget.story.footer;
@@ -120,13 +126,13 @@ class ContentViewState extends State<ContentView> {
       if (header != null)
         Positioned(
           top: _provider!.style.indicatorStyle.height + 16,
-          left: 0,
+          left: headerLeft ?? 0,
           child: header,
         ),
       if (footer != null)
         Positioned(
-          bottom: 0,
-          left: 0,
+          bottom: footerBottom ?? 0,
+          left: footerLeft ?? 0,
           child: footer,
         ),
     ];

@@ -54,7 +54,7 @@ class StoryIndicator extends StatelessWidget {
           final isBefore = index < activeIndicatorIndex;
           return Expanded(
             child: ClipRRect(
-              borderRadius: style.borderRadius,
+              borderRadius: style.borderRadius ?? BorderRadius.zero,
               child: LinearProgressIndicator(
                 backgroundColor: style.backgroundColor,
                 valueColor: AlwaysStoppedAnimation<Color>(
@@ -71,7 +71,7 @@ class StoryIndicator extends StatelessWidget {
               animation: animation!,
               builder: (context, child) {
                 return ClipRRect(
-                  borderRadius: style.borderRadius,
+                  borderRadius: style.borderRadius ?? BorderRadius.zero,
                   child: LinearProgressIndicator(
                     backgroundColor: style.backgroundColor,
                     valueColor: AlwaysStoppedAnimation<Color>(style.valueColor),
